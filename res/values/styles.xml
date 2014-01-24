@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>  
+<resources xmlns:adnroid="http://schemas.android.com/apk/res/android">
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+
+    <style name="noTitle" parent="android:Theme.NoTitleBar"></style>
+
+    <style name="textStyle">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="PictureStyle">
+        <item name="android:scaleType">fitXY</item>
+    </style>
+
+    <style name="searchStyle">
+        <item name="android:textSize">12sp</item>
+    </style>
+    
+    <style name="AboutTitleBackground">  
+       <item name="android:background">@android:color/black</item>  
+    </style>
+    
+    <style name="AboutTitle" parent="android:Theme">
+	    <item name="android:windowTitleSize">50dp</item>
+	    <item name="android:windowTitleBackgroundStyle">@style/AboutTitleBackground</item>
+	</style>
+    
+
+    <style name="CustomWindowTitleBackground">
+        <item name="android:background">@drawable/bg_title_recognition</item>
+    </style>
+
+    <style name="SearchTitleBackground">
+        <item name="android:background">@drawable/bg_title_search</item>
+    </style>
+    
+    <style name="ResultTitleBackground">
+        <item name="android:background">@drawable/bg_title_info</item>
+    </style>
+    
+    <style name="CompareTitleBackground">
+        <item name="android:background">@drawable/bg_title_compare</item>
+    </style>
+
+</resources>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">LookFace</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="result_info">\t\t\t\t1代表最相似,9代表最不相似。</string>
+    <string name="lookface_info">随着微软Kinect、谷歌Glass的诞生，机器视觉及人机交互技术将成为下一次IT革命浪潮中的核心驱动力。\n 多媒体信息和视觉技术，已悄然改变人类生活的方方面面。人脸，作为信息量最丰富、用户关联最强的视觉信息，其巨大的价值毋庸置疑。\n本软件是一款娱乐性软件，不做任何商业用途使用，使用软件需要您的网络处于正常使用中，如果没有网络就不能获取人脸识别的具体信息，操作简单易懂，经过我们的悉心制作，相信会给你带来不一样的视觉盛宴。</string>
+    <string name="tishi_choicpic">请选择您要对比的图像</string>
+    <string name="choice_pic1">选择照片1</string>
+    <string name="choice_pic2">检测照片2</string>
+    <string name="check_pic1">检测照片1</string>
+    <string name="fenxi1">对比分析</string>
+    <string name="title_fenxin">对比分析报告</string>
+    <string name="fenxin_eye">眼睛:未分析</string>
+    <string name="fenxin_meimao">眉毛:未分析</string>
+    <string name="fenxin_mouth">嘴巴:未分析</string>
+    <string name="fenxin_nose">鼻子:未分析</string>
+    <string name="fenxin_zhengti">整体的相似度:未分析</string>
+
+</resources>

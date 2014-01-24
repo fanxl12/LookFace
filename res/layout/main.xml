@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#55ff0000"
+    android:gravity="center" >
+    
+    <ImageView 
+        android:layout_width="35dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/ic_launcher"/>
+    <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="13dp"
+        android:textSize="20sp"
+        android:textColor="#80ffffff"
+        android:text="LookFace"/>
+    <View 
+        android:layout_width="130dp"
+        android:layout_height="1dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="38dp"
+        android:background="#80ffffff"/>
+    
+    <TextView 
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="26dp"
+        android:layout_marginTop="40dp"
+        android:textSize="12sp"
+        android:textColor="#80ffffff"
+        android:text="Know your face really"/>
+
+    <FrameLayout
+        android:layout_width="320.0dip"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" >
+
+        <FrameLayout
+            android:id="@+id/fl_face_recognition"
+            android:layout_width="97.0dip"
+            android:layout_height="97.0dip"
+            android:layout_gravity="top"
+            android:layout_marginLeft="58.0dip"
+            android:layout_marginTop="14.0dip"
+            android:background="@drawable/btn_main_proedit_res" >
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dip"
+                android:layout_marginTop="65dip" >
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:text="人脸识别" />
+            </FrameLayout>
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/fl_face_search"
+            android:layout_width="97.0dip"
+            android:layout_height="97.0dip"
+            android:layout_gravity="right"
+            android:layout_marginRight="58.0dip"
+            android:layout_marginTop="14.0dip"
+            android:background="@drawable/btn_main_proedit_res" >
+            
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dip"
+                android:layout_marginTop="65dip" >
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:text="人脸搜索" />
+            </FrameLayout>
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/fl_face_compare"
+            android:layout_width="97.0dip"
+            android:layout_height="97.0dip"
+            android:layout_gravity="top"
+            android:layout_marginLeft="58.0dip"
+            android:layout_marginTop="121.0dip"
+            android:background="@drawable/btn_main_proedit_res" >
+            
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dip"
+                android:layout_marginTop="65dip" >
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:text="人脸对比" />
+            </FrameLayout>
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/fl_face_about"
+            android:layout_width="97.0dip"
+            android:layout_height="97.0dip"
+            android:layout_gravity="right"
+            android:layout_marginBottom="14.0dip"
+            android:layout_marginRight="58.0dip"
+            android:layout_marginTop="121.0dip"
+            android:background="@drawable/btn_main_proedit_res" >
+            
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dip"
+                android:layout_marginTop="65dip" >
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="关于" />
+            </FrameLayout>
+        </FrameLayout>
+    </FrameLayout>
+</FrameLayout>

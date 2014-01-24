@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:adnroid="http://schemas.android.com/apk/res/android">
+
+<style name="titleTheme" parent="android:Theme" >
+  <item name="android:windowTitleBackgroundStyle">@style/CustomWindowTitleBackground</item>
+  <item name="android:windowTitleSize">50dp</item>
+</style>
+
+<style name="searchTheme" parent="android:Theme" >
+  <item name="android:windowTitleBackgroundStyle">@style/SearchTitleBackground</item>
+  <item name="android:windowTitleSize">50dp</item>
+</style>
+
+<style name="resultTheme" parent="android:Theme" >
+  <item name="android:windowTitleBackgroundStyle">@style/ResultTitleBackground</item>
+  <item name="android:windowTitleSize">50dp</item>
+</style>
+
+<style name="compareTheme" parent="android:Theme" >
+  <item name="android:windowTitleBackgroundStyle">@style/CompareTitleBackground</item>
+  <item name="android:windowTitleSize">50dp</item>
+</style>
+
+</resources>
