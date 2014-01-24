@@ -1,8 +1,6 @@
 package com.fanxl.lookface;
 
 import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
 import org.json.JSONException;
 import org.json.JSONObject;
 import android.app.Activity;
@@ -12,7 +10,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
-import android.graphics.Bitmap.CompressFormat;
 import android.graphics.BitmapFactory;
 import android.graphics.BitmapFactory.Options;
 import android.graphics.Canvas;
@@ -21,7 +18,6 @@ import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.provider.MediaStore;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -44,30 +40,31 @@ public class RecognitionActivity extends Activity {
 	private int phoneWight;
 	private Bitmap img = null;
 	private int scale = 1;
-	private static final int TAKE_PICTURE = 0;
 	private static final int CHOOSE_PICTURE = 1;
-	private final static int REQUEST_GET_PHOTO = 1;
 	private String picturePath = null;
 	private String jsonRst = null;
 	private boolean b = false;
 	private LinearLayout ll_back_main;
 
+	@SuppressWarnings("deprecation")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
 		setContentView(R.layout.recognition);
-		getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.title_bar);
+		getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE,
+				R.layout.title_bar);
 
 		iv_main_picture = (ImageView) findViewById(R.id.iv_main_picture);
 		et_title_text = (TextView) findViewById(R.id.et_title_text);
 		et_title_text.setText("人脸检测");
 		ll_back_main = (LinearLayout) findViewById(R.id.ll_back_main);
 		ll_back_main.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
-				startActivity(new Intent(RecognitionActivity.this, MainStartActivity.class));
+				startActivity(new Intent(RecognitionActivity.this,
+						MainStartActivity.class));
 				finish();
 			}
 		});
@@ -76,7 +73,7 @@ public class RecognitionActivity extends Activity {
 		WindowManager wm = (WindowManager) getSystemService(WINDOW_SERVICE);
 		phoneHeight = wm.getDefaultDisplay().getHeight();
 		phoneWight = wm.getDefaultDisplay().getWidth();
-	
+
 	}
 
 	// 选择照片按钮的点击事件
@@ -86,29 +83,30 @@ public class RecognitionActivity extends Activity {
 
 	// 查看识别之后的详细信息
 	public void more(View view) {
-		if(b){
+		if (b) {
 			// 按查看信息按钮，使用intent跳转到人脸识别页面
-			Intent intent = new Intent(RecognitionActivity.this, RecognitionResult.class);
+			Intent intent = new Intent(RecognitionActivity.this,
+					RecognitionResult.class);
 			// 用intent携带数据到人脸识别页面，传递给人脸识别的tv_secondview;
 			intent.putExtra("jsonRst", jsonRst);
 			// 跳转到人脸识别页面
 			startActivity(intent);
-		}else{
-			Toast.makeText(this, "请先进行人脸识别",Toast.LENGTH_SHORT).show();
+		} else {
+			Toast.makeText(this, "请先进行人脸识别", Toast.LENGTH_SHORT).show();
 		}
 	}
 
 	// 查看按钮的点击事件，将图片资源提交到服务器，拿到结果
 	public void check(View view) {
-		
+
 		// 判断是否选择了照片
 		if (img != null) {
 			FaceppDetect faceppDetect = new FaceppDetect();
 			faceppDetect.setDetectCallback(new DetectCallback() {
 
 				public void detectResult(JSONObject rst) {
-				    jsonRst = rst.toString();
-					
+					jsonRst = rst.toString();
+
 					// 创建一个红色的画笔
 					Paint paint = new Paint();
 					paint.setColor(Color.RED);
@@ -147,7 +145,7 @@ public class RecognitionActivity extends Activity {
 							w = w / 100 * img.getWidth() * 0.7f;
 							y = y / 100 * img.getHeight();
 							h = h / 100 * img.getHeight() * 0.7f;
-							
+
 							b = true;
 
 							// draw the box to mark it out
@@ -155,8 +153,9 @@ public class RecognitionActivity extends Activity {
 							canvas.drawLine(x - w, y - h, x + w, y - h, paint);
 							canvas.drawLine(x + w, y + h, x - w, y + h, paint);
 							canvas.drawLine(x + w, y + h, x + w, y - h, paint);
-							
-							//backBit = Bitmap.createBitmap(img, (int)(x-w), (int)(y-h), (int)(x+w), (int)(y+h));
+
+							// backBit = Bitmap.createBitmap(img, (int)(x-w),
+							// (int)(y-h), (int)(x+w), (int)(y+h));
 						}
 
 						// 保存修改之后新的bitmap
@@ -177,35 +176,17 @@ public class RecognitionActivity extends Activity {
 						e.printStackTrace();
 						RecognitionActivity.this.runOnUiThread(new Runnable() {
 							public void run() {
-								Toast.makeText(RecognitionActivity.this, "请求错误",
-										Toast.LENGTH_SHORT).show();
+								Toast.makeText(RecognitionActivity.this,
+										"请求错误", Toast.LENGTH_SHORT).show();
 							}
 						});
 					}
 				}
 			});
-		    faceppDetect.detect(img);
+			faceppDetect.detect(img);
 		} else {
 			Toast.makeText(RecognitionActivity.this, "照片不能为空",
 					Toast.LENGTH_SHORT).show();
-		}
-	}
-	
-	public void save(Bitmap blackbit){
-	    try {
-			File file = new File(Environment.getExternalStorageDirectory(),System.currentTimeMillis()+".jpg");
-			FileOutputStream stream = new FileOutputStream(file);
-			blackbit.compress(CompressFormat.JPEG, 100, stream);
-			stream.close();
-			Toast.makeText(this, "保存成功", Toast.LENGTH_SHORT).show();
-//		    //模拟一个消息通知系统sd卡被重新挂载了，通过广播的方式
-//			Intent intent = new Intent();
-//			intent.setAction(Intent.ACTION_MEDIA_MOUNTED);
-//			intent.setData(Uri.fromFile(Environment.getExternalStorageDirectory()));
-//	        sendBroadcast(intent);
-	    } catch (Exception e) {
-			Toast.makeText(this, "保存失败", Toast.LENGTH_SHORT).show();
-			e.printStackTrace();
 		}
 	}
 
@@ -215,42 +196,23 @@ public class RecognitionActivity extends Activity {
 		AlertDialog.Builder builder = new AlertDialog.Builder(context);
 		builder.setTitle("图片来源");
 		builder.setNegativeButton("取消", null);
-		builder.setItems(new String[] { "拍照", "相册" },
+		builder.setItems(new String[] { "相册" },
 				new DialogInterface.OnClickListener() {
 					// 返回的类型码
 					int REQUEST_CODE;
 
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
-						switch (which) {
-						case TAKE_PICTURE: // 打开相机拍照
-							Uri imageUri = null;
-							String fileName = null;
-							Intent openCameraIntent = new Intent(
-									MediaStore.ACTION_IMAGE_CAPTURE);
-							REQUEST_CODE = TAKE_PICTURE;
-							fileName = "image.jpg";
-							imageUri = Uri.fromFile(new File(Environment
-									.getExternalStorageDirectory(), fileName));
-							// 指定照片保存路径（SD卡），image.jpg为一个临时文件，每次拍照后这个图片都会被替换
-							openCameraIntent.putExtra(MediaStore.EXTRA_OUTPUT,
-									imageUri);
-							startActivityForResult(openCameraIntent,
-									REQUEST_CODE);
-							break;
 
-						case CHOOSE_PICTURE: // 从系统相册里面选择照片
-							Intent openAlbumIntent = new Intent(
-									Intent.ACTION_GET_CONTENT);
-							REQUEST_CODE = CHOOSE_PICTURE;
-							openAlbumIntent
-									.setDataAndType(
-											MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
-											"image/*");
-							startActivityForResult(openAlbumIntent,
-									REQUEST_CODE);
-							break;
-						}
+						// 从系统相册里面选择照片
+						Intent openAlbumIntent = new Intent(
+								Intent.ACTION_GET_CONTENT);
+						REQUEST_CODE = CHOOSE_PICTURE;
+						openAlbumIntent.setDataAndType(
+								MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+								"image/*");
+						startActivityForResult(openAlbumIntent, REQUEST_CODE);
+
 					}
 				});
 		builder.create().show();
@@ -261,44 +223,28 @@ public class RecognitionActivity extends Activity {
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
 		if (resultCode == RESULT_OK) {
-			switch (requestCode) {
-			case TAKE_PICTURE:
-				// 将保存在本地的图片取出并缩小后显示在界面上
-				picturePath = Environment.getExternalStorageDirectory()
-						+ "/image.jpg";
+			if (data != null) {
+				Uri uri = data.getData(); // 得到图片的路径
+				// 就图片的Uri地址变成一个路径地址
+				String[] filePathColumn = { MediaStore.Images.Media.DATA };
+
+				Cursor cursor = getContentResolver().query(uri, filePathColumn,
+						null, null, null);
+				cursor.moveToFirst();
+
+				int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+				// 得到选择图片的路径
+				picturePath = cursor.getString(columnIndex);
+				cursor.close();
+				System.out.println("dizhi:" + picturePath);
+
 				img = getBitmap(picturePath);
-				// 将处理过的图片显示在界面上，并保存到本地
 				iv_main_picture.setImageBitmap(img);
-				break;
-			case REQUEST_GET_PHOTO: {
-				if (data != null) {
-					Uri uri = data.getData(); // 得到图片的路径
-					// 就图片的Uri地址变成一个路径地址
-					String[] filePathColumn = { MediaStore.Images.Media.DATA };
-
-					Cursor cursor = getContentResolver().query(uri,
-							filePathColumn, null, null, null);
-					cursor.moveToFirst();
-
-					int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
-					// 得到选择图片的路径
-					picturePath = cursor.getString(columnIndex);
-					cursor.close();
-					System.out.println("dizhi:" + picturePath);
-
-					img = getBitmap(picturePath);
-					iv_main_picture.setImageBitmap(img);
-				}
-				break;
 			}
-			}
-
 		}
-
-		super.onActivityResult(requestCode, resultCode, data);
 	}
 
-	//对图片进行优化处理，避免对大的照片出现内存溢出问题
+	// 对图片进行优化处理，避免对大的照片出现内存溢出问题
 	public Bitmap getBitmap(String picturePath) {
 		// 图片解析参数配置
 		BitmapFactory.Options opts = new Options();
@@ -323,7 +269,7 @@ public class RecognitionActivity extends Activity {
 		return img;
 	}
 
-	//提交照片到网上进行解析
+	// 提交照片到网上进行解析
 	private class FaceppDetect {
 		DetectCallback callback = null;
 
@@ -358,8 +304,10 @@ public class RecognitionActivity extends Activity {
 						// detect
 						PostParameters parameters = new PostParameters();
 						parameters.setImg(array);
-						parameters.setAttribute("gender,age,race,smiling,glass");
-						JSONObject result = httpRequests.detectionDetect(parameters);
+						parameters
+								.setAttribute("gender,age,race,smiling,glass");
+						JSONObject result = httpRequests
+								.detectionDetect(parameters);
 						// finished , then call the callback function
 						if (callback != null) {
 							callback.detectResult(result);
@@ -368,8 +316,8 @@ public class RecognitionActivity extends Activity {
 						e.printStackTrace();
 						RecognitionActivity.this.runOnUiThread(new Runnable() {
 							public void run() {
-								Toast.makeText(RecognitionActivity.this, "网络错误",
-										Toast.LENGTH_SHORT).show();
+								Toast.makeText(RecognitionActivity.this,
+										"网络错误", Toast.LENGTH_SHORT).show();
 							}
 						});
 					}
@@ -378,10 +326,9 @@ public class RecognitionActivity extends Activity {
 			}).start();
 		}
 	}
-	
+
 	interface DetectCallback {
 		void detectResult(JSONObject rst);
 	}
-	
-}
 
+}

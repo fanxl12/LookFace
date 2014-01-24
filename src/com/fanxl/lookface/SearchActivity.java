@@ -1,7 +1,6 @@
 package com.fanxl.lookface;
 
 import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +26,6 @@ import android.graphics.Paint;
 import android.graphics.BitmapFactory.Options;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.provider.MediaStore;
@@ -54,9 +52,7 @@ public class SearchActivity extends Activity {
 	private TextView tv_name_1, tv_name_2, tv_name_3, tv_name_4, tv_name_5,
 			tv_name_6, tv_name_7, tv_name_8, tv_name_9, et_title_text;
 	private List<String> nameList = null;
-	private static final int TAKE_PICTURE = 0;
 	private static final int CHOOSE_PICTURE = 1;
-	private final static int REQUEST_GET_PHOTO = 1;
 	private String picturePath = null;
 	private Bitmap img = null;
 	private int phoneHeight;
@@ -114,6 +110,7 @@ public class SearchActivity extends Activity {
 		}
 	};
 
+	@SuppressWarnings("deprecation")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -249,7 +246,7 @@ public class SearchActivity extends Activity {
 	}
 
 	// 选择照片按钮的点击事件
-	public void choice(View view) {
+	public void GetPic(View view) {
 		showPicturePicker(SearchActivity.this);
 	}
 
@@ -341,42 +338,23 @@ public class SearchActivity extends Activity {
 		AlertDialog.Builder builder = new AlertDialog.Builder(context);
 		builder.setTitle("图片来源");
 		builder.setNegativeButton("取消", null);
-		builder.setItems(new String[] { "拍照", "相册" },
+		builder.setItems(new String[] { "相册" },
 				new DialogInterface.OnClickListener() {
 					// 返回的类型码
 					int REQUEST_CODE;
 
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
-						switch (which) {
-						case TAKE_PICTURE: // 打开相机拍照
-							Uri imageUri = null;
-							String fileName = null;
-							Intent openCameraIntent = new Intent(
-									MediaStore.ACTION_IMAGE_CAPTURE);
-							REQUEST_CODE = TAKE_PICTURE;
-							fileName = "image.jpg";
-							imageUri = Uri.fromFile(new File(Environment
-									.getExternalStorageDirectory(), fileName));
-							// 指定照片保存路径（SD卡），image.jpg为一个临时文件，每次拍照后这个图片都会被替换
-							openCameraIntent.putExtra(MediaStore.EXTRA_OUTPUT,
-									imageUri);
-							startActivityForResult(openCameraIntent,
-									REQUEST_CODE);
-							break;
 
-						case CHOOSE_PICTURE: // 从系统相册里面选择照片
-							Intent openAlbumIntent = new Intent(
-									Intent.ACTION_GET_CONTENT);
-							REQUEST_CODE = CHOOSE_PICTURE;
-							openAlbumIntent
-									.setDataAndType(
-											MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
-											"image/*");
-							startActivityForResult(openAlbumIntent,
-									REQUEST_CODE);
-							break;
-						}
+						// 从系统相册里面选择照片
+						Intent openAlbumIntent = new Intent(
+								Intent.ACTION_GET_CONTENT);
+						REQUEST_CODE = CHOOSE_PICTURE;
+						openAlbumIntent.setDataAndType(
+								MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+								"image/*");
+						startActivityForResult(openAlbumIntent, REQUEST_CODE);
+
 					}
 				});
 		builder.create().show();
@@ -387,38 +365,24 @@ public class SearchActivity extends Activity {
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
 		if (resultCode == RESULT_OK) {
-			switch (requestCode) {
-			case TAKE_PICTURE:
-				// 将保存在本地的图片取出并缩小后显示在界面上
-				picturePath = Environment.getExternalStorageDirectory()
-						+ "/image.jpg";
+			if (data != null) {
+				Uri uri = data.getData(); // 得到图片的路径
+				// 就图片的Uri地址变成一个路径地址
+				String[] filePathColumn = { MediaStore.Images.Media.DATA };
+
+				Cursor cursor = getContentResolver().query(uri, filePathColumn,
+						null, null, null);
+				cursor.moveToFirst();
+
+				int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+				// 得到选择图片的路径
+				picturePath = cursor.getString(columnIndex);
+				cursor.close();
+				System.out.println("dizhi:" + picturePath);
+
 				img = getBitmap(picturePath);
-				// 将处理过的图片显示在界面上，并保存到本地
 				iv_search_picture.setImageBitmap(img);
-				break;
-			case REQUEST_GET_PHOTO: {
-				if (data != null) {
-					Uri uri = data.getData(); // 得到图片的路径
-					// 就图片的Uri地址变成一个路径地址
-					String[] filePathColumn = { MediaStore.Images.Media.DATA };
-
-					Cursor cursor = getContentResolver().query(uri,
-							filePathColumn, null, null, null);
-					cursor.moveToFirst();
-
-					int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
-					// 得到选择图片的路径
-					picturePath = cursor.getString(columnIndex);
-					cursor.close();
-					System.out.println("dizhi:" + picturePath);
-
-					img = getBitmap(picturePath);
-					iv_search_picture.setImageBitmap(img);
-				}
-				break;
 			}
-			}
-
 		}
 	}
 

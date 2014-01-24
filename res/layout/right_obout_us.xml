@@ -13,14 +13,16 @@
         android:padding="5dp" >
 
         <ImageView
+            android:contentDescription="@string/backgroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:scaleType="fitXY"
             android:background="@drawable/back001" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="LookFace"
+            android:text="@string/lookface"
             android:textColor="#000"
             android:textSize="14sp" />
 
@@ -40,6 +42,7 @@
                 android:gravity="center_vertical" >
 
                 <ImageView
+                    android:contentDescription="@string/jiantou"
                     android:id="@+id/iv_oboutus_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -53,7 +56,7 @@
                     android:layout_height="wrap_content"
                     android:layout_toRightOf="@id/iv_oboutus_1"
                     android:padding="8dp"
-                    android:text="一、软件说明"
+                    android:text="@string/one"
                     android:textColor="#000"
                     android:textSize="14sp" />
             </RelativeLayout>
@@ -81,6 +84,7 @@
                 android:gravity="center_vertical" >
 
                 <ImageView
+                    android:contentDescription="@string/jiantou"
                     android:id="@+id/iv_oboutus_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -94,7 +98,7 @@
                     android:layout_height="wrap_content"
                     android:layout_toRightOf="@id/iv_oboutus_2"
                     android:padding="8dp"
-                    android:text="二、软件版本"
+                    android:text="@string/two"
                     android:textColor="#000"
                     android:textSize="14sp" />
             </RelativeLayout>
@@ -108,7 +112,7 @@
                 android:paddingLeft="25dp"
                 android:paddingRight="15dp"
                 android:paddingTop="8dp"
-                android:text="V 1.0测试版"
+                android:text="@string/version"
                 android:textColor="#000"
                 android:textSize="14sp"
                 android:visibility="gone" />
@@ -121,6 +125,7 @@
                 android:gravity="center_vertical" >
 
                 <ImageView
+                    android:contentDescription="@string/jiantou"
                     android:id="@+id/iv_oboutus_3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -134,7 +139,7 @@
                     android:layout_height="wrap_content"
                     android:layout_toRightOf="@id/iv_oboutus_3"
                     android:padding="8dp"
-                    android:text="三、联系我们"
+                    android:text="@string/three"
                     android:textColor="#000"
                     android:textSize="14sp" />
             </RelativeLayout>
@@ -147,7 +152,7 @@
                 android:paddingLeft="25dp"
                 android:paddingRight="15dp"
                 android:paddingTop="8dp"
-                android:text="可以通过新浪微博fanxl12来联系我们。"
+                android:text="@string/lianxi"
                 android:textColor="#000"
                 android:textSize="14sp"
                 android:visibility="gone" />

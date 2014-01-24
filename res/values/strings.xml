@@ -17,5 +17,13 @@
     <string name="fenxin_mouth">嘴巴:未分析</string>
     <string name="fenxin_nose">鼻子:未分析</string>
     <string name="fenxin_zhengti">整体的相似度:未分析</string>
+    <string name="lookface">LookFace</string>
+    <string name="one">一、软件说明</string>
+    <string name="two">二、软件版本</string>
+    <string name="version">V 1.0测试版</string>
+    <string name="three">三、联系我们</string>
+    <string name="lianxi">可以通过新浪微博fanxl12来联系我们。</string>
+    <string name="backgroup">backgroup</string>
+    <string name="jiantou">jiantou</string>
 
 </resources>
