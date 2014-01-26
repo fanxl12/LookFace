@@ -43,7 +43,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:onClick="GetPic"
-                        android:text="照片"
+                        android:text="@string/picture"
                         android:textSize="12sp" />
 
                     <Button
@@ -51,14 +51,14 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:onClick="getId"
-                        android:text="搜索"
+                        android:text="@string/search"
                         android:textSize="12sp" />
                 </LinearLayout>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="搜索说明：" />
+                    android:text="@string/infor_search" />
 
                 <TextView
                     android:layout_width="wrap_content"

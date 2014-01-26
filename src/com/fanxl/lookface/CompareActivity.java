@@ -32,7 +32,6 @@ import android.view.View.OnClickListener;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -46,7 +45,7 @@ import com.fanxl.lookface.jsonService.JsonService;
 public class CompareActivity extends Activity implements OnClickListener {
 
 	private Button bt_four_left, bt_four_right, bt_four_check,bt_four_loadleft,bt_four_loadright;
-	private TextView tv_four_eye,tv_four_eyebrow,tv_four_mouth,tv_four_nose,tv_four_simil, tv_title_text;
+	private TextView tv_four_eye,tv_four_eyebrow,tv_four_mouth,tv_four_nose,tv_four_simil, tv_title_text,tv_back_main;
 	private ImageView iv_four_left, iv_four_right;
 	private static final int CHOOSE_PICTURE = 1;
 	private String picturePath = null; // 选择图片路径
@@ -60,7 +59,6 @@ public class CompareActivity extends Activity implements OnClickListener {
 	private String face_id1 = null;
 	private String face_id2 = null;
 	private List<Double> list = null;
-	private LinearLayout ll_back_main;
 	
 	@SuppressLint("HandlerLeak")
 	private Handler handler = new Handler() {
@@ -86,8 +84,8 @@ public class CompareActivity extends Activity implements OnClickListener {
 		
 		tv_title_text = (TextView) findViewById(R.id.et_title_text);
 		tv_title_text.setText("识别结果");
-		ll_back_main = (LinearLayout) findViewById(R.id.ll_back_main);
-		ll_back_main.setOnClickListener(new OnClickListener() {
+		tv_back_main = (TextView) findViewById(R.id.tv_back_main);
+		tv_back_main.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {

@@ -5,20 +5,12 @@
     android:background="@drawable/background_check_result"
     android:padding="10dp" >
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/tv_second_search"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingTop="50dp" >
-
-        <TextView
-            android:id="@+id/tv_second_search"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="根据我们详细的检测和分析，我知道你是一位：男士，年龄大概在18~22岁之间，黄种人。看你拍照时的微笑，我猜你喜欢"
-            android:textSize="20sp"
-            android:textColor="#0000ff" />
-
-    </LinearLayout>
+        android:layout_margin="10dp"
+        android:textColor="#0000ff"
+        android:textSize="20sp" />
 
 </RelativeLayout>

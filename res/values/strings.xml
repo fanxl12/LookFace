@@ -25,5 +25,14 @@
     <string name="lianxi">可以通过新浪微博fanxl12来联系我们。</string>
     <string name="backgroup">backgroup</string>
     <string name="jiantou">jiantou</string>
+    <string name="picture_compare">比较的图片</string>
+    <string name="choice_picture">选择照片</string>
+    <string name="recognition_face">人脸识别</string>
+    <string name="check_result">检测结果</string>
+    <string name="picture">照片</string>
+    <string name="search">搜索</string>
+    <string name="infor_search">搜索说明：</string>
+    <string name="back">返回</string>
+    <string name="picture_back">返回键图片</string>
 
 </resources>

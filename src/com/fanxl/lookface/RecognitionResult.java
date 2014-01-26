@@ -16,18 +16,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.View.OnClickListener;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class RecognitionResult extends Activity {
 	
-	private TextView  tv_second_search, tv_title_text;
+	private TextView  tv_second_search, tv_title_text,tv_back_main;
 	private String ageRange = null;
 	private String sex = null;
 	private String ren = null;
 	private String smile = "";
 	private String glassText = "";
-	private LinearLayout ll_back_main;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +36,8 @@ public class RecognitionResult extends Activity {
 		
 		tv_title_text = (TextView) findViewById(R.id.et_title_text);
 		tv_title_text.setText("识别结果");
-		ll_back_main = (LinearLayout) findViewById(R.id.ll_back_main);
-		ll_back_main.setOnClickListener(new OnClickListener() {
+		tv_back_main = (TextView) findViewById(R.id.tv_back_main);
+		tv_back_main.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {

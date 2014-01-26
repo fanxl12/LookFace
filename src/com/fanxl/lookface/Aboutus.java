@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.Window;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -16,8 +15,7 @@ public class Aboutus extends Activity implements OnClickListener{
 	
 	private ImageView iv_oboutus_1, iv_oboutus_2, iv_oboutus_3;
 	private RelativeLayout rl_oboutus_1, rl_oboutus_2, rl_oboutus_3;
-	private TextView tv_oboutus_1, tv_oboutus_2, tv_oboutus_3,et_title_text;
-	private LinearLayout ll_back_main;
+	private TextView tv_oboutus_1, tv_oboutus_2, tv_oboutus_3,et_title_text,tv_back_main;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +26,8 @@ public class Aboutus extends Activity implements OnClickListener{
 		
 		et_title_text = (TextView) findViewById(R.id.et_title_text);
 		et_title_text.setText("¹ØÓÚÈí¼þ");
-		ll_back_main = (LinearLayout) findViewById(R.id.ll_back_main);
-		ll_back_main.setOnClickListener(new OnClickListener() {
+		tv_back_main = (TextView) findViewById(R.id.tv_back_main);
+		tv_back_main.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {

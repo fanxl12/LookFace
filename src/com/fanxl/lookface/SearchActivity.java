@@ -34,7 +34,6 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.facepp.error.FaceppParseException;
@@ -50,7 +49,7 @@ public class SearchActivity extends Activity {
 			iv_search_9;
 	protected static final int Error = 9;
 	private TextView tv_name_1, tv_name_2, tv_name_3, tv_name_4, tv_name_5,
-			tv_name_6, tv_name_7, tv_name_8, tv_name_9, et_title_text;
+			tv_name_6, tv_name_7, tv_name_8, tv_name_9, et_title_text,tv_back_main;
 	private List<String> nameList = null;
 	private static final int CHOOSE_PICTURE = 1;
 	private String picturePath = null;
@@ -58,7 +57,6 @@ public class SearchActivity extends Activity {
 	private int phoneHeight;
 	private int phoneWight;
 	private int scale = 1;
-	private LinearLayout ll_back_main;
 
 	@SuppressLint("HandlerLeak")
 	private Handler handler = new Handler() {
@@ -121,8 +119,8 @@ public class SearchActivity extends Activity {
 		
 		et_title_text = (TextView) findViewById(R.id.et_title_text);
 		et_title_text.setText("ÈËÁ³ËÑË÷");
-		ll_back_main = (LinearLayout) findViewById(R.id.ll_back_main);
-		ll_back_main.setOnClickListener(new OnClickListener() {
+		tv_back_main = (TextView) findViewById(R.id.tv_back_main);
+		tv_back_main.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {

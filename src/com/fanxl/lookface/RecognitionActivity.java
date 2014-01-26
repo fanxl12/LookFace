@@ -24,7 +24,6 @@ import android.view.View.OnClickListener;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,7 +34,7 @@ import com.facepp.http.PostParameters;
 public class RecognitionActivity extends Activity {
 
 	private ImageView iv_main_picture;
-	private TextView et_title_text;
+	private TextView et_title_text, tv_back_main;
 	private int phoneHeight;
 	private int phoneWight;
 	private Bitmap img = null;
@@ -44,7 +43,6 @@ public class RecognitionActivity extends Activity {
 	private String picturePath = null;
 	private String jsonRst = null;
 	private boolean b = false;
-	private LinearLayout ll_back_main;
 
 	@SuppressWarnings("deprecation")
 	@Override
@@ -58,8 +56,8 @@ public class RecognitionActivity extends Activity {
 		iv_main_picture = (ImageView) findViewById(R.id.iv_main_picture);
 		et_title_text = (TextView) findViewById(R.id.et_title_text);
 		et_title_text.setText("»À¡≥ºÏ≤‚");
-		ll_back_main = (LinearLayout) findViewById(R.id.ll_back_main);
-		ll_back_main.setOnClickListener(new OnClickListener() {
+		tv_back_main = (TextView) findViewById(R.id.tv_back_main);
+		tv_back_main.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {

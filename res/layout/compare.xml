@@ -23,6 +23,7 @@
         android:orientation="horizontal" >
 
         <ImageView
+            android:contentDescription="@string/picture_compare"
             android:id="@+id/iv_four_left"
             android:layout_width="0dp"
             android:layout_height="180dp"
@@ -30,6 +31,7 @@
             android:scaleType="fitXY" />
 
         <ImageView
+            android:contentDescription="@string/picture_compare"
             android:id="@+id/iv_four_right"
             android:layout_width="0dp"
             android:layout_height="180dp"
