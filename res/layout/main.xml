@@ -6,11 +6,12 @@
     android:gravity="center" >
     
     <ImageView 
+        android:contentDescription="@string/picture_icon"
         android:layout_width="35dp"
         android:layout_height="30dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
-        android:src="@drawable/ic_launcher"/>
+        android:layout_marginTop="7dp"
+        android:src="@drawable/icon"/>
     <TextView 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -18,7 +19,7 @@
         android:layout_marginTop="13dp"
         android:textSize="20sp"
         android:textColor="#80ffffff"
-        android:text="LookFace"/>
+        android:text="@string/lookface"/>
     <View 
         android:layout_width="130dp"
         android:layout_height="1dp"
@@ -33,7 +34,7 @@
         android:layout_marginTop="40dp"
         android:textSize="12sp"
         android:textColor="#80ffffff"
-        android:text="Know your face really"/>
+        android:text="@string/konw_face"/>
 
     <FrameLayout
         android:layout_width="320.0dip"
@@ -58,7 +59,8 @@
                 <TextView
                     android:layout_width="60dp"
                     android:layout_height="wrap_content"
-                    android:text="人脸识别" />
+                    style="@style/mainTextStyle"
+                    android:text="@string/check_face" />
             </FrameLayout>
 
         </FrameLayout>
@@ -81,7 +83,8 @@
                 <TextView
                     android:layout_width="60dp"
                     android:layout_height="wrap_content"
-                    android:text="人脸搜索" />
+                    style="@style/mainTextStyle"
+                    android:text="@string/search_face" />
             </FrameLayout>
         </FrameLayout>
 
@@ -103,7 +106,8 @@
                 <TextView
                     android:layout_width="60dp"
                     android:layout_height="wrap_content"
-                    android:text="人脸对比" />
+                    style="@style/mainTextStyle"
+                    android:text="@string/compare_face" />
             </FrameLayout>
         </FrameLayout>
 
@@ -127,7 +131,8 @@
                     android:layout_width="60dp"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
-                    android:text="关于" />
+                    style="@style/mainTextStyle"
+                    android:text="@string/about_us" />
             </FrameLayout>
         </FrameLayout>
     </FrameLayout>

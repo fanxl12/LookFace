@@ -34,5 +34,11 @@
     <string name="infor_search">搜索说明：</string>
     <string name="back">返回</string>
     <string name="picture_back">返回键图片</string>
+    <string name="konw_face">Know your face really</string>
+    <string name="check_face">人脸识别</string>
+    <string name="search_face">人脸搜索</string>
+    <string name="compare_face">人脸对比</string>
+    <string name="about_us">关于</string>
+    <string name="picture_icon">icon</string>
 
 </resources>
