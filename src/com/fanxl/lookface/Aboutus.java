@@ -11,6 +11,11 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+/**
+ * 这个是关于我们的页面
+ * @author fanxl
+ *
+ */
 public class Aboutus extends Activity implements OnClickListener{
 	
 	private ImageView iv_oboutus_1, iv_oboutus_2, iv_oboutus_3;

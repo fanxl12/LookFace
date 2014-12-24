@@ -32,22 +32,27 @@ public final class R {
         public static final int bg_title_search=0x7f020008;
         public static final int biankuang=0x7f020009;
         public static final int bk05=0x7f02000a;
-        public static final int btn_main_proedit_res=0x7f02000b;
-        public static final int button_style2=0x7f02000c;
-        public static final int ic_launcher=0x7f02000d;
-        public static final int ic_preference_first_normal=0x7f02000e;
-        public static final int ic_preference_first_pressed=0x7f02000f;
-        public static final int ic_preference_last_normal=0x7f020010;
-        public static final int ic_preference_normal=0x7f020011;
-        public static final int ic_preference_pressed=0x7f020012;
-        public static final int mm_submenu_change=0x7f020013;
-        public static final int mm_submenu_normal=0x7f020014;
-        public static final int preference_first_item=0x7f020015;
-        public static final int preference_item=0x7f020016;
-        public static final int shape=0x7f020017;
-        public static final int stop_timer_btn=0x7f020018;
-        public static final int timer_center_bg=0x7f020019;
-        public static final int yuanqu_left=0x7f02001a;
+        public static final int bt_main_about=0x7f02000b;
+        public static final int bt_main_compare=0x7f02000c;
+        public static final int bt_main_recognition=0x7f02000d;
+        public static final int bt_main_search=0x7f02000e;
+        public static final int btn_main_proedit_res=0x7f02000f;
+        public static final int button_style2=0x7f020010;
+        public static final int ic_launcher=0x7f020011;
+        public static final int ic_preference_first_normal=0x7f020012;
+        public static final int ic_preference_first_pressed=0x7f020013;
+        public static final int ic_preference_last_normal=0x7f020014;
+        public static final int ic_preference_normal=0x7f020015;
+        public static final int ic_preference_pressed=0x7f020016;
+        public static final int icon=0x7f020017;
+        public static final int mm_submenu_change=0x7f020018;
+        public static final int mm_submenu_normal=0x7f020019;
+        public static final int preference_first_item=0x7f02001a;
+        public static final int preference_item=0x7f02001b;
+        public static final int shape=0x7f02001c;
+        public static final int stop_timer_btn=0x7f02001d;
+        public static final int timer_center_bg=0x7f02001e;
+        public static final int yuanqu_left=0x7f02001f;
     }
     public static final class id {
         public static final int action_settings=0x7f080038;
@@ -80,7 +85,6 @@ public final class R {
         public static final int iv_search_8=0x7f080031;
         public static final int iv_search_9=0x7f080032;
         public static final int iv_search_picture=0x7f080023;
-        public static final int ll_back_main=0x7f080036;
         public static final int obout_us_content_layout=0x7f080016;
         public static final int rl_oboutus_1=0x7f080017;
         public static final int rl_oboutus_2=0x7f08001b;
@@ -88,6 +92,7 @@ public final class R {
         public static final int tv_about_us_title_1=0x7f080019;
         public static final int tv_about_us_title_2=0x7f08001d;
         public static final int tv_about_us_title_3=0x7f080021;
+        public static final int tv_back_main=0x7f080036;
         public static final int tv_four_eye=0x7f080008;
         public static final int tv_four_eyebrow=0x7f080009;
         public static final int tv_four_mouth=0x7f08000a;
@@ -121,11 +126,18 @@ public final class R {
         public static final int main=0x7f070000;
     }
     public static final class string {
+        public static final int about_us=0x7f050025;
         public static final int action_settings=0x7f050001;
         public static final int app_name=0x7f050000;
+        public static final int back=0x7f05001f;
+        public static final int backgroup=0x7f050016;
+        public static final int check_face=0x7f050022;
         public static final int check_pic1=0x7f050008;
+        public static final int check_result=0x7f05001b;
         public static final int choice_pic1=0x7f050006;
         public static final int choice_pic2=0x7f050007;
+        public static final int choice_picture=0x7f050019;
+        public static final int compare_face=0x7f050024;
         public static final int fenxi1=0x7f050009;
         public static final int fenxin_eye=0x7f05000b;
         public static final int fenxin_meimao=0x7f05000c;
@@ -133,24 +145,38 @@ public final class R {
         public static final int fenxin_nose=0x7f05000e;
         public static final int fenxin_zhengti=0x7f05000f;
         public static final int hello_world=0x7f050002;
+        public static final int infor_search=0x7f05001e;
+        public static final int jiantou=0x7f050017;
+        public static final int konw_face=0x7f050021;
+        public static final int lianxi=0x7f050015;
+        public static final int lookface=0x7f050010;
         public static final int lookface_info=0x7f050004;
+        public static final int one=0x7f050011;
+        public static final int picture=0x7f05001c;
+        public static final int picture_back=0x7f050020;
+        public static final int picture_compare=0x7f050018;
+        public static final int picture_icon=0x7f050026;
+        public static final int recognition_face=0x7f05001a;
         public static final int result_info=0x7f050003;
+        public static final int search=0x7f05001d;
+        public static final int search_face=0x7f050023;
+        public static final int three=0x7f050014;
         public static final int tishi_choicpic=0x7f050005;
         public static final int title_fenxin=0x7f05000a;
+        public static final int two=0x7f050012;
+        public static final int version=0x7f050013;
     }
     public static final class style {
-        public static final int AboutTitle=0x7f060007;
-        public static final int AboutTitleBackground=0x7f060006;
+        public static final int AboutTitle=0x7f060008;
+        public static final int AboutTitleBackground=0x7f060007;
         /** 
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
-
     
 
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
             backward-compatibility can go here.
-
         
 
         Base application theme for API 11+. This theme completely replaces
@@ -169,17 +195,18 @@ public final class R {
  All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f060001;
-        public static final int CompareTitleBackground=0x7f06000b;
-        public static final int CustomWindowTitleBackground=0x7f060008;
-        public static final int PictureStyle=0x7f060004;
-        public static final int ResultTitleBackground=0x7f06000a;
-        public static final int SearchTitleBackground=0x7f060009;
-        public static final int compareTheme=0x7f06000f;
+        public static final int CompareTitleBackground=0x7f06000c;
+        public static final int CustomWindowTitleBackground=0x7f060009;
+        public static final int PictureStyle=0x7f060005;
+        public static final int ResultTitleBackground=0x7f06000b;
+        public static final int SearchTitleBackground=0x7f06000a;
+        public static final int compareTheme=0x7f060010;
+        public static final int mainTextStyle=0x7f060004;
         public static final int noTitle=0x7f060002;
-        public static final int resultTheme=0x7f06000e;
-        public static final int searchStyle=0x7f060005;
-        public static final int searchTheme=0x7f06000d;
+        public static final int resultTheme=0x7f06000f;
+        public static final int searchStyle=0x7f060006;
+        public static final int searchTheme=0x7f06000e;
         public static final int textStyle=0x7f060003;
-        public static final int titleTheme=0x7f06000c;
+        public static final int titleTheme=0x7f06000d;
     }
 }
